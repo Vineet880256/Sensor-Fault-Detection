@@ -1,6 +1,7 @@
-from sensor.entity.config_entity import TrainingPipelineConfig,DataIngestionConfig
-from sensor.entity.artifact_entity import DataIngestionArtifact
+from sensor.entity.config_entity import TrainingPipelineConfig,DataIngestionConfig,DataValidationConfig
+from sensor.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from sensor.components.data_ingestion import DataIngestion
+from sensor.components.data_validation import DataValidation
 from sensor.exception import SensorException
 from sensor.logger import logging
 import sys, os
@@ -10,6 +11,7 @@ class TrainPipeline:
 
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
+        self.data_validation_config = DataValidationConfig()
         
 
 
@@ -39,18 +41,38 @@ class TrainPipeline:
             raise SensorException(e, sys) from e
 
 
-    def start_data_validation(self):
+    def start_data_validation(
+        self, data_ingestion_artifact: DataIngestionArtifact
+    ) -> DataValidationArtifact:
+        logging.info("Entered the start_data_validation method of TrainPipeline class")
+
         try:
-            pass
-        except  Exception as e:
-            raise  SensorException(e,sys)
+            data_validation = DataValidation(
+                data_ingestion_artifact = data_ingestion_artifact,
+                data_validation_config = self.data_validation_config,
+            )
 
+            data_validation_artifact = data_validation.initiate_data_validation()
 
-    def start_data_transformation(self):
-            try:
-                pass
-            except  Exception as e:
-                raise  SensorException(e,sys)
+            logging.info("Performed the data validation operation")
+
+            logging.info(
+                "Exited the start_data_validation method of TrainPipeline class"
+            )
+
+            return data_validation_artifact
+
+        except Exception as e:
+            raise SensorException(e, sys) from e
+
+    def start_data_transformation():
+        try:
+           pass
+
+        
+
+        except Exception as e:
+            raise SensorException(e, sys)
 
     def start_model_trainer(self):
         try:
@@ -73,6 +95,7 @@ class TrainPipeline:
     def run_pipeline(self):
         try:
             data_ingestion_artifact:DataIngestionArtifact = self.start_data_ingestion()
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact)
 
         except  Exception as e:
             raise  SensorException(e,sys)

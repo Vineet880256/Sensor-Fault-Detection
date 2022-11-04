@@ -1,0 +1,20 @@
+[ 2022-11-02 23:16:24,417 ] 19 root - INFO - Main Starting
+[ 2022-11-02 23:16:24,418 ] 19 root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2022-11-02 23:16:24,418 ] 23 root - INFO - Getting the data from mongodb
+[ 2022-11-02 23:16:24,418 ] 112 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2022-11-02 23:16:24,418 ] 31 root - INFO - Exporting data from mongodb
+[ 2022-11-02 23:16:24,575 ] 20 root - INFO - Connection is successfully done
+[ 2022-11-02 23:17:21,701 ] 39 root - INFO - Shape of dataframe: (35001, 171)
+[ 2022-11-02 23:17:21,719 ] 47 root - INFO - Saving exported data into feature store file path: artifact\11_02_2022_23_16_20\data_ingestion\feature_store\sensor.csv
+[ 2022-11-02 23:17:31,531 ] 121 root - INFO - Got the data from mongodb
+[ 2022-11-02 23:17:31,533 ] 69 root - INFO - Entered split_data_as_train_test method of Data_Ingestion class
+[ 2022-11-02 23:17:31,951 ] 76 root - INFO - Performed train test split on the dataframe
+[ 2022-11-02 23:17:31,951 ] 78 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2022-11-02 23:17:31,954 ] 86 root - INFO - Exporting train and test file path.
+[ 2022-11-02 23:17:38,709 ] 96 root - INFO - Exported train and test file path.
+[ 2022-11-02 23:17:38,966 ] 125 root - INFO - Performed train test split on the dataset
+[ 2022-11-02 23:17:38,967 ] 127 root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2022-11-02 23:17:38,967 ] 136 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='artifact\\11_02_2022_23_16_20\\data_ingestion\\ingested\\train.csv', test_file_path='artifact\\11_02_2022_23_16_20\\data_ingestion\\ingested\\test.csv')
+[ 2022-11-02 23:17:39,700 ] 31 root - INFO - Got the train_set and test_set from mongodb
+[ 2022-11-02 23:17:39,701 ] 33 root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2022-11-02 23:17:39,703 ] 46 root - INFO - Entered the start_data_validation method of TrainPipeline class

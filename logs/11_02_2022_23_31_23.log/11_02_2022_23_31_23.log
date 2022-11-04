@@ -1,0 +1,31 @@
+[ 2022-11-02 23:31:27,129 ] 19 root - INFO - Main Starting
+[ 2022-11-02 23:31:27,129 ] 20 root - INFO - Entered the start_data_ingestion method of TrainPipeline class
+[ 2022-11-02 23:31:27,129 ] 24 root - INFO - Getting the data from mongodb
+[ 2022-11-02 23:31:27,129 ] 112 root - INFO - Entered initiate_data_ingestion method of Data_Ingestion class
+[ 2022-11-02 23:31:27,129 ] 31 root - INFO - Exporting data from mongodb
+[ 2022-11-02 23:31:27,275 ] 20 root - INFO - Connection is successfully done
+[ 2022-11-02 23:32:33,127 ] 39 root - INFO - Shape of dataframe: (35001, 171)
+[ 2022-11-02 23:32:33,138 ] 47 root - INFO - Saving exported data into feature store file path: artifact\11_02_2022_23_31_23\data_ingestion\feature_store\sensor.csv
+[ 2022-11-02 23:32:38,738 ] 121 root - INFO - Got the data from mongodb
+[ 2022-11-02 23:32:38,738 ] 69 root - INFO - Entered split_data_as_train_test method of Data_Ingestion class
+[ 2022-11-02 23:32:39,115 ] 76 root - INFO - Performed train test split on the dataframe
+[ 2022-11-02 23:32:39,115 ] 78 root - INFO - Exited split_data_as_train_test method of Data_Ingestion class
+[ 2022-11-02 23:32:39,116 ] 86 root - INFO - Exporting train and test file path.
+[ 2022-11-02 23:32:45,072 ] 96 root - INFO - Exported train and test file path.
+[ 2022-11-02 23:32:45,391 ] 125 root - INFO - Performed train test split on the dataset
+[ 2022-11-02 23:32:45,391 ] 127 root - INFO - Exited initiate_data_ingestion method of Data_Ingestion class
+[ 2022-11-02 23:32:45,392 ] 136 root - INFO - Data ingestion artifact: DataIngestionArtifact(trained_file_path='artifact\\11_02_2022_23_31_23\\data_ingestion\\ingested\\train.csv', test_file_path='artifact\\11_02_2022_23_31_23\\data_ingestion\\ingested\\test.csv')
+[ 2022-11-02 23:32:46,100 ] 32 root - INFO - Got the train_set and test_set from mongodb
+[ 2022-11-02 23:32:46,101 ] 34 root - INFO - Exited the start_data_ingestion method of TrainPipeline class
+[ 2022-11-02 23:32:46,104 ] 47 root - INFO - Entered the start_data_validation method of TrainPipeline class
+[ 2022-11-02 23:32:46,203 ] 130 root - INFO - Starting data validation
+[ 2022-11-02 23:32:47,515 ] 39 root - INFO - Is required column present: [True]
+[ 2022-11-02 23:32:47,515 ] 142 root - INFO - All required columns present in training dataframe: True
+[ 2022-11-02 23:32:47,516 ] 39 root - INFO - Is required column present: [True]
+[ 2022-11-02 23:32:47,516 ] 151 root - INFO - All required columns present in testing dataframe: True
+[ 2022-11-02 23:32:47,517 ] 65 root - INFO - Missing numerical column: []
+[ 2022-11-02 23:32:47,517 ] 65 root - INFO - Missing numerical column: []
+[ 2022-11-02 23:32:52,578 ] 107 root - INFO - 0/164 drift detected.
+[ 2022-11-02 23:32:52,580 ] 190 root - INFO - Data validation artifact: DataValidationArtifact(validation_status=True, valid_train_file_path='artifact\\11_02_2022_23_31_23\\data_ingestion\\ingested\\train.csv', valid_test_file_path='artifact\\11_02_2022_23_31_23\\data_ingestion\\ingested\\test.csv', invalid_train_file_path='artifact\\11_02_2022_23_31_23\\data_validation\\invalid\\train.csv', invalid_test_file_path='artifact\\11_02_2022_23_31_23\\data_validation\\invalid\\test.csv', drift_report_file_path='artifact\\11_02_2022_23_31_23\\data_validation\\drift_report\\report.yaml')
+[ 2022-11-02 23:32:52,585 ] 57 root - INFO - Performed the data validation operation
+[ 2022-11-02 23:32:52,586 ] 59 root - INFO - Exited the start_data_validation method of TrainPipeline class
